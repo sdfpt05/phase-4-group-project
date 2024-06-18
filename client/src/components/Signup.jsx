@@ -37,66 +37,119 @@ async function onSubmit (values) {
 
   
     return (
-      <form onSubmit={formik.handleSubmit}>
-        <label htmlFor="firstName">First Name</label>
-        <input
-          id="firstName"
-          name="firstName"
-          type="text"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.firstName}
-        />
-        {formik.touched.firstName && formik.errors.firstName ? (
-          <div>{formik.errors.firstName}</div>
-        ) : null}
+      <form onSubmit={formik.handleSubmit} style={{ maxWidth: '400px', margin: 'auto' }}>
+        <div style={{ marginBottom: '1rem' }}>
+          <label htmlFor="firstName">First Name</label>
+          <input
+            id="firstName"
+            name="firstName"
+            type="text"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.firstName}
+            style={{
+              width: '100%',
+              padding: '0.5rem',
+              fontSize: '1rem',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+            }}
+          />
+          {formik.touched.firstName && formik.errors.firstName ? (
+            <div style={{ color: 'red', fontSize: '0.8rem', marginTop: '0.2rem' }}>
+              {formik.errors.firstName}
+            </div>
+          ) : null}
+        </div>
   
-        <label htmlFor="lastName">Last Name</label>
-        <input
-          id="lastName"
-          name="lastName"
-          type="text"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.lastName}
-        />
-        {formik.touched.lastName && formik.errors.lastName ? (
-          <div>{formik.errors.lastName}</div>
-        ) : null}
+        <div style={{ marginBottom: '1rem' }}>
+          <label htmlFor="lastName">Last Name</label>
+          <input
+            id="lastName"
+            name="lastName"
+            type="text"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.lastName}
+            style={{
+              width: '100%',
+              padding: '0.5rem',
+              fontSize: '1rem',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+            }}
+          />
+          {formik.touched.lastName && formik.errors.lastName ? (
+            <div style={{ color: 'red', fontSize: '0.8rem', marginTop: '0.2rem' }}>
+              {formik.errors.lastName}
+            </div>
+          ) : null}
+        </div>
   
-        <label htmlFor="email">Email Address</label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.email}
-        />
-
-        {formik.touched.email && formik.errors.email ? (
-          <div>{formik.errors.email}</div>
-        ) : null}
-
-        <label htmlFor="password">Password</label>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.password}
-        />
-
-        {formik.touched.password && formik.errors.password ? (
-          <div>{formik.errors.password}</div>
-        ) : null}
+        <div style={{ marginBottom: '1rem' }}>
+          <label htmlFor="email">Email Address</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.email}
+            style={{
+              width: '100%',
+              padding: '0.5rem',
+              fontSize: '1rem',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+            }}
+          />
+          {formik.touched.email && formik.errors.email ? (
+            <div style={{ color: 'red', fontSize: '0.8rem', marginTop: '0.2rem' }}>
+              {formik.errors.email}
+            </div>
+          ) : null}
+        </div>
   
-        <button type="submit">Submit</button>
+        <div style={{ marginBottom: '1rem' }}>
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.password}
+            style={{
+              width: '100%',
+              padding: '0.5rem',
+              fontSize: '1rem',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+            }}
+          />
+          {formik.touched.password && formik.errors.password ? (
+            <div style={{ color: 'red', fontSize: '0.8rem', marginTop: '0.2rem' }}>
+              {formik.errors.password}
+            </div>
+          ) : null}
+        </div>
+  
+        <button
+          type="submit"
+          style={{
+            backgroundColor: '#007bff',
+            color: 'white',
+            padding: '0.5rem 1rem',
+            fontSize: '1rem',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer',
+          }}
+        >
+          Submit
+        </button>
       </form>
     );
   };
-
-
 
 export default Signup
