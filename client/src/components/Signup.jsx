@@ -1,14 +1,19 @@
-import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from 'yup';
-// import './css/Login.css'
+import './css/Signup.css';
+import { serverURL } from "../utils";
 
-const Login = () => {
-  const [customers, setClient] = useState([{}]);
-  const [refreshPage, setRefreshPage] = useState(false);
+const Signup = () => {
+
+async function onSubmit (values) {
+  const res = await fetch(serverURL, {
+    method: "POST",
+    body: JSON.stringify(values),
+    headers: {"Content-Type": "application/json"}
+  }) 
+  const data = await res.json()
 }
 
-   const SignupForm = () => {
     const formik = useFormik({
       initialValues: {
         firstName: '',
@@ -24,12 +29,13 @@ const Login = () => {
           .max(20, 'Must be 20 characters or less')
           .required('Required'),
         email: Yup.string().email('Invalid email address').required('Required'),
-        password: Yup.string().password('Invalid password').required('Required')
+        password: Yup.string().required('Password is required').min(6, 'Password need to be 6 characters')
       }),
-      onSubmit: values => {
-        alert(JSON.stringify(values, null, 2));
-      },
+      onSubmit,
+      
     });
+
+  
     return (
       <form onSubmit={formik.handleSubmit}>
         <label htmlFor="firstName">First Name</label>
@@ -90,5 +96,7 @@ const Login = () => {
       </form>
     );
   };
+
+
 
 export default Signup
