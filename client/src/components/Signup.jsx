@@ -37,8 +37,8 @@ async function onSubmit (values) {
 
   
     return (
-      <form onSubmit={formik.handleSubmit} style={{ maxWidth: '400px', margin: 'auto' }}>
-        <div style={{ marginBottom: '1rem' }}>
+      <form onSubmit={formik.handleSubmit} style={{ maxWidth: '400px', margin: 'auto'}}>
+        <div style={{ marginTop: "5rem", marginBottom: '1rem' }}>
           <label htmlFor="firstName">First Name</label>
           <input
             id="firstName"
