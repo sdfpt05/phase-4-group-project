@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
 const AddBook = () => {
-  const [name, setName] = useState('');
+  const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [imageUrl, setImageUrl] = useState('');
 
   async function onSubmit(values) {
     try {
-      const serverURL = ''; // Replace with your server URL
+      const serverURL = '/book/add'; // Replace with server URL
       const res = await fetch(serverURL, {
         method: "POST",
         body: JSON.stringify(values),
@@ -15,7 +15,7 @@ const AddBook = () => {
       });
       const data = await res.json();
       console.log('Book added successfully:', data);
-      setName('');
+      setTitle('');
       setAuthor('');
       setImageUrl('');
     } catch (error) {
@@ -25,7 +25,7 @@ const AddBook = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const values = { name, author, imageUrl };
+    const values = { title, author, imageUrl };
     onSubmit(values);
   };
 
@@ -34,13 +34,13 @@ const AddBook = () => {
       <form className='client-form' onSubmit={handleSubmit}>
         <h2>Add Book</h2>
         <div className='form-group'>
-          <label htmlFor='book'>Book Name:</label>
+          <label htmlFor='book'>Book Title:</label>
           <input
             type='text'
             id='book'
             name='book'
-            onChange={(e) => setName(e.target.value)}
-            value={name}
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
           />
         </div>
         <div className='form-group'>
