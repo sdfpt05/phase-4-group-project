@@ -31,10 +31,12 @@ def add_book():
         return jsonify({'message': 'Book added successfully'}), 201
     return jsonify({'errors': form.errors}), 400
 
-@bp.route('/book/<int:id>', methods=['GET', 'PUT'])
-def edit_book(id):
+@bp.route('/book/<int:id>', methods=['GET', 'PUT', 'DELETE'])
+def book_detail(id):
     book = Book.query.get_or_404(id)
-    if request.method == 'PUT':
+    if request.method == 'GET':
+        return jsonify(book.to_dict())
+    elif request.method == 'PUT':
         form = BookForm()
         if form.validate_on_submit():
             book.title = form.title.data
@@ -43,11 +45,7 @@ def edit_book(id):
             db.session.commit()
             return jsonify({'message': 'Book updated successfully'})
         return jsonify({'errors': form.errors}), 400
-    return jsonify(book.to_dict())
-
-@bp.route('/delete/<int:id>', methods=['DELETE'])
-def delete_book(id):
-    book = Book.query.get_or_404(id)
-    db.session.delete(book)
-    db.session.commit()
-    return jsonify({'message': 'Book deleted successfully'})
+    elif request.method == 'DELETE':
+        db.session.delete(book)
+        db.session.commit()
+        return jsonify({'message': 'Book deleted successfully'})
