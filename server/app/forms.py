@@ -8,6 +8,6 @@ class SignupForm(FlaskForm):
       password = PasswordField('Password', validators=[DataRequired()])
        password2 = PasswordField(
         'Repeat Password', validators=[DataRequired(), EqualTo('password')])
-    submit = SubmitField('Sign Up')
+   submit = SubmitField('Sign Up')
 
-    
+class BookForm(FlaskForm):
