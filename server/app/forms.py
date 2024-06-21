@@ -22,3 +22,4 @@ class BookForm(FlaskForm):
     description = TextAreaField('Description', validators=[Length(min=0, max=500)])
     submit = SubmitField('Submit')
 
+
