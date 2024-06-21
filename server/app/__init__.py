@@ -16,6 +16,10 @@ def create_app():
     from . import routes
     app.register_blueprint(routes.bp)
 
+    # Disable CSRF protection
+    app.config['WTF_CSRF_ENABLED'] = False
+
     return app
+
 
 
