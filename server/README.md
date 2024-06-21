@@ -1,6 +1,6 @@
 # phase-4-group-project
 
-This is a Flask backend application with a PostgreSQL database, providing endpoints for managing books and users.
+This is a Flask backend application for managing a bookstore.
 
 ## Prerequisites
 
