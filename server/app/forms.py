@@ -11,4 +11,8 @@ class SignupForm(FlaskForm):
    submit = SubmitField('Sign Up')
 
 class BookForm(FlaskForm):
-    title = StringField('Title', validators=[DataRequired()])
+   title = StringField('Title', validators=[DataRequired()])
+    author = StringField('Author', validators=[DataRequired()])
+    description = TextAreaField('Description', validators=[Length(min=0, max=500)])
+    submit = SubmitField('Submit')
+
