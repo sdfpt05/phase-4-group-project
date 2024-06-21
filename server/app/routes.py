@@ -49,3 +49,4 @@ def book_detail(id):
         db.session.delete(book)
         db.session.commit()
         return jsonify({'message': 'Book deleted successfully'})
+
