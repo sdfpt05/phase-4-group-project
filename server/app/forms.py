@@ -11,3 +11,4 @@ class SignupForm(FlaskForm):
    submit = SubmitField('Sign Up')
 
 class BookForm(FlaskForm):
+    title = StringField('Title', validators=[DataRequired()])
