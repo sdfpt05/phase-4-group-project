@@ -27,3 +27,6 @@ class User(db.Model):
 class Client(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     roll = db.Column(db.String(64), unique=True)
+    username = db.Column(db.String(64))
+    mobile = db.Column(db.String(64))
+    email = db.Column(db.String(120), unique=True)
