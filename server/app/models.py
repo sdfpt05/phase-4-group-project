@@ -1,6 +1,6 @@
+
 from . import db
 from werkzeug.security import generate_password_hash, check_password_hash
-
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -21,11 +21,11 @@ class Book(db.Model):
     description = db.Column(db.String(200))
     image_url = db.Column(db.String(200))
 
-
-
 class Client(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     roll = db.Column(db.String(64), unique=True)
     username = db.Column(db.String(64))
     mobile = db.Column(db.String(64))
     email = db.Column(db.String(120), unique=True)
+
+
