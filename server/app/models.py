@@ -1,8 +1,10 @@
 from . import db
 from werkzeug.security import generate_password_hash, check_password_hash
+
+
 class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(120), index=True, unique=True)
+    title = db.Column(db.String(64))
     author = db.Column(db.String(120), index=True)
     description = db.Column(db.String(500))
 
