@@ -22,3 +22,8 @@ class User(db.Model):
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
+
+
+class Client(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    roll = db.Column(db.String(64), unique=True)
