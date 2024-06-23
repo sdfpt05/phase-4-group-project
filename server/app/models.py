@@ -9,13 +9,6 @@ class Book(db.Model):
     description = db.Column(db.String(200))
     image_url = db.Column(db.String(200))
 
-    def to_dict(self):
-        return {
-            'id': self.id,
-            'title': self.title,
-            'author': self.author,
-            'description': self.description
-        }
 
 
 class User(db.Model):
