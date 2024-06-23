@@ -7,6 +7,7 @@ class Book(db.Model):
     title = db.Column(db.String(64))
     author = db.Column(db.String(64))
     description = db.Column(db.String(200))
+    image_url = db.Column(db.String(200))
 
     def to_dict(self):
         return {
