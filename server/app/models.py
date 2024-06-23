@@ -5,8 +5,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(64))
-    author = db.Column(db.String(120), index=True)
-    description = db.Column(db.String(500))
+    author = db.Column(db.String(64))
+    description = db.Column(db.String(200))
 
     def to_dict(self):
         return {
