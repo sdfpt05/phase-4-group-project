@@ -10,8 +10,9 @@ migrate = Migrate()
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_object(Config)
-    CORS(app)
+    # app.config.from_object(Config)
+    cors = CORS(app, resources={r"/*": {"origins": "*"}})
+    app.config["CORS_HEADERS"] = "Content-Type" 
 
     db.init_app(app)
     migrate.init_app(app, db)
