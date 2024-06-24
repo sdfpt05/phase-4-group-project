@@ -13,6 +13,7 @@ def create_app():
     # app.config.from_object(Config)
     cors = CORS(app, resources={r"/*": {"origins": "*"}})
     app.config["CORS_HEADERS"] = "Content-Type" 
+    app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://phase_4_project:UJuxOc3QDqIX15EzzIf0MK9CVbUok6kG@dpg-cpqpuarv2p9s73do1kp0-a.oregon-postgres.render.com/phase_4_app_db"
 
     db.init_app(app)
     migrate.init_app(app, db)
