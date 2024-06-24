@@ -87,8 +87,10 @@ const EditBook = () => {
             onChange={(e) => setImageUrl(e.target.value)}
             value={imageUrl}
           />
-        </div>
+       </div>
         <button type='submit'>Update</button>
+        {/* Add Update button */}
+        <button type='button' onClick={handleSubmit}>Update</button>
       </form>
     </div>
   );

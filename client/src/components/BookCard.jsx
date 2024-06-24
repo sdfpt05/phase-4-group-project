@@ -14,7 +14,7 @@ return (
         <div className="book-actions">
             {/* <button>Edit</button> */}
             <Link to={`/book/${book.id}`}>Edit</Link>
-            <button>Delete</button>
+            <Link to={`/book/${book.id}`}>Delete</Link>
         </div>
     </div>
 )
