@@ -10,7 +10,7 @@ const EditBook = () => {
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const serverURL = `/book/${id}`; // Replace with server URL to fetch book details
+        const serverURL = `https://phase-4-group-project.onrender.com/book/${id}`; // Replace with server URL to fetch book details
         const res = await fetch(serverURL);
         if (!res.ok) {
           throw new Error('Failed to fetch book');
