@@ -6,12 +6,12 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { login } = useAuth()
-  const navigate = useNavigate
+  const navigate = useNavigate()
 
 async function onSubmit (values) {
   console.log(values)
   login()
-  navigate('/Dashboard')
+  navigate('/dashboard')
   // const res = await fetch(serverURL, {
   //   method: "POST",
   //   body: JSON.stringify(values),

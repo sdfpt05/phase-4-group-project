@@ -1,11 +1,16 @@
 import React from 'react'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import './css/Navbar.css'
 import { useAuth } from '../authcontext'
 
 
 const Navbar = () => {
-    const {isLoggedIn} = useAuth()
+    const {isLoggedIn, logout} = useAuth()
+    const navigate = useNavigate()
+    function handleClick() {
+        logout ()
+        navigate("/")
+    } 
     return (
         <nav className='navbar'>
             <div className='navbar-left'>
@@ -20,7 +25,7 @@ const Navbar = () => {
                 <Link to='/addbook' className='navbar-link'>Add Book</Link>
                 <Link to='/addclient' className='navbar-link'>Add Client</Link>
                 <Link to='/dashboard' className='navbar-link'>Dashboard</Link>
-                <Link to='/logout' className='navbar-link'>Logout</Link>
+                <button onClick={handleClick} className='navbar-link'>Logout</button>
                 </>}
             </div>
         </nav>
