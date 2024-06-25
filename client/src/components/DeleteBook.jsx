@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const DeleteBook = () => {
   const { id } = useParams();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const deleteBook = async () => {
@@ -16,14 +16,14 @@ const DeleteBook = () => {
           throw new Error('Failed to delete book');
         }
         console.log('Book deleted successfully');
-        history.push('/books'); // Redirect to books list page after deletion
+        navigate('/books'); // Redirect to books list page after deletion
       } catch (error) {
         console.error('Error deleting book:', error);
       }
     };
 
     deleteBook();
-  }, [id, history]); // Execute deletion when `id` or `history` changes
+  }, [id, navigate]); // Execute deletion when `id` or `history` changes
 
   return (
     <div className='delete-book-container'>
