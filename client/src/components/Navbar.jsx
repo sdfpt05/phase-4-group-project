@@ -25,7 +25,7 @@ const Navbar = () => {
                 <Link to='/addbook' className='navbar-link'>Add Book</Link>
                 <Link to='/addclient' className='navbar-link'>Add Client</Link>
                 <Link to='/dashboard' className='navbar-link'>Dashboard</Link>
-                <button onClick={handleClick} className='navbar-link'>Logout</button>
+                <button style={{backgroundColor: " white "}} onClick={handleClick} className='navbar-link'>Logout</button>
                 </>}
             </div>
         </nav>

@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { serverURL } from '../utils';
 
 const EditBook = () => {
   const { id } = useParams();
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [imageUrl, setImageUrl] = useState('');
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const serverURL = `https://phase-4-group-project.onrender.com/book/${id}`; // Replace with server URL to fetch book details
-        const res = await fetch(serverURL);
+        const res = await fetch(serverURL + '/book/' +id);
         if (!res.ok) {
           throw new Error('Failed to fetch book');
         }
@@ -29,8 +30,8 @@ const EditBook = () => {
 
   async function onSubmit(values) {
     try {
-      const serverURL = `/book/update/${id}`; // Replace with server URL to update book
-      const res = await fetch(serverURL, {
+      const url = `${serverURL}/book/${id}`; // Replace with server URL to update book
+      const res = await fetch(url, {
         method: 'PUT',
         body: JSON.stringify(values),
         headers: { 'Content-Type': 'application/json' }
@@ -40,9 +41,7 @@ const EditBook = () => {
       }
       const data = await res.json();
       console.log('Book updated successfully:', data);
-      setTitle(data.title);
-      setAuthor(data.author);
-      setImageUrl(data.image);
+      navigate('/books')
     } catch (error) {
       console.error('Error updating book:', error);
     }
@@ -50,7 +49,7 @@ const EditBook = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const values = { title, author, imageUrl };
+    const values = { title, author, image_url:imageUrl, description:'changes' };
     onSubmit(values);
   };
 
@@ -88,8 +87,6 @@ const EditBook = () => {
             value={imageUrl}
           />
        </div>
-        <button type='submit'>Update</button>
-        {/* Add Update button */}
         <button type='button' onClick={handleSubmit}>Update</button>
       </form>
     </div>

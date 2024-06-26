@@ -6,13 +6,13 @@ import { useAuth } from "../authcontext";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-  const { login } = useAuth()
+  const { signup } = useAuth()
   const navigate = useNavigate
 
 async function onSubmit (values) {
   console.log(values)
-  login()
-  navigate('/dashboard')
+  signup()
+  navigate('/login')
   // const res = await fetch(serverURL, {
   //   method: "POST",
   //   body: JSON.stringify(values),
