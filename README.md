@@ -1,12 +1,13 @@
 # phase-4-group-project
 
 This is a Flask backend application with a PostgreSQL database, providing endpoints for managing books and users.
-The app is deployed here: https://phase-4-group-project.onrender.com
+The app is deployed here: https://book-app-3221.onrender.com/
 
 ## Prerequisites
 
 - Python 3.8 or higher
 - PostgreSQL
+- Nodejs
 - `pipenv` for managing the virtual environment and dependencies
 
 ## Setting Up the Project
@@ -14,8 +15,8 @@ The app is deployed here: https://phase-4-group-project.onrender.com
 ### 1. Clone the Repository
 
 ```bash
-git clone <https://github.com/sdfpt05/phase-4-group-project.git>
-cd <phase-4-group-project>
+git clone https://github.com/sdfpt05/phase-4-group-project.git
+cd phase-4-group-project
 ```
 
 ### 2. Set Up the Virtual Environment
@@ -54,7 +55,23 @@ pipenv run flask db migrate
 pipenv run flask db upgrade
 ```
 
-### 6. Run the Application
+### 6. Set Up the Frontend
+
+Navigate to the client directory and install the frontend dependencies:
+
+```bash
+npm install --prefix client
+```
+
+### 7. Build the Frontend
+
+Build the production version of the React application:
+
+```bash
+npm run build --prefix client
+```
+
+### 8. Run the Application
 
 Start the Flask application:
 

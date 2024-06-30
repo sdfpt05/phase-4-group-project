@@ -12,8 +12,8 @@ def create_app():
     app = Flask(
         __name__,
         static_url_path='',
-        static_folder='../client/build',
-        template_folder='../client/build'
+        static_folder='../client/dist',
+        template_folder='../client/dist'
     )
     # app.config.from_object(Config)
     cors = CORS(app, resources={r"/*": {"origins": "*"}})
@@ -21,8 +21,6 @@ def create_app():
     app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://phase_4_project:UJuxOc3QDqIX15EzzIf0MK9CVbUok6kG@dpg-cpqpuarv2p9s73do1kp0-a.oregon-postgres.render.com/phase_4_app_db"
     app.config["SECRET_KEY"] = "UJuxOc3QDqIX15EzzIf0MK9CVbUok6kG"
     
-    app.config["SECRET_KEY"] = "UJuxOc3QDqIX15EzzIf0MK9CVbUok6kG"
-
     db.init_app(app)
     migrate.init_app(app, db)
 
