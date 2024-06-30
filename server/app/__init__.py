@@ -9,7 +9,12 @@ db = SQLAlchemy()
 migrate = Migrate()
 
 def create_app():
-    app = Flask(__name__)
+    app = Flask(
+        __name__,
+        static_url_path='',
+        static_folder='../client/build',
+        template_folder='../client/build'
+    )
     # app.config.from_object(Config)
     cors = CORS(app, resources={r"/*": {"origins": "*"}})
     app.config["CORS_HEADERS"] = "Content-Type" 
