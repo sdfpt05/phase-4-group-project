@@ -14,8 +14,8 @@ The app is deployed here: https://phase-4-group-project.onrender.com
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd <repository-directory>
+git clone <https://github.com/sdfpt05/phase-4-group-project.git>
+cd <phase-4-group-project>
 ```
 
 ### 2. Set Up the Virtual Environment
