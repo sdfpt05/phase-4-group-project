@@ -1,15 +1,14 @@
-
 {
   "name": "client",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "start": "vite preview"
+    "dev": "vite", // To start the development server
+    "build": "vite build", // To build the project
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0", // To lint the project
+    "preview": "vite preview", // To preview the built project
+    "start": "vite preview" // Ensuring the start script is correct
   },
   "dependencies": {
     "axios": "^1.7.2",
