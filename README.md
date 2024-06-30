@@ -1,6 +1,7 @@
 # phase-4-group-project
 
 This is a Flask backend application with a PostgreSQL database, providing endpoints for managing books and users.
+The app is deployed here: https://phase-4-group-project.onrender.com
 
 ## Prerequisites
 
