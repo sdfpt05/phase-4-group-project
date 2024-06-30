@@ -7,7 +7,7 @@ const AddBook = () => {
 
   async function onSubmit(values) {
     try {
-      const serverURL = "https://phase-4-group-project.onrender.com{add}"; // Replace with server URL
+      const serverURL = `https://phase-4-group-project.onrender.com/api/${id}`;
       const res = await fetch(serverURL, {
         method: "POST",
         body: JSON.stringify(values),

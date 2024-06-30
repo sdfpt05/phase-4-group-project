@@ -12,7 +12,7 @@ const Signup = () => {
 async function onSubmit (values) {
   console.log(values)
   signup()
-  navigate('/login')
+  navigate('/api/login')
   // const res = await fetch(serverURL, {
   //   method: "POST",
   //   body: JSON.stringify(values),

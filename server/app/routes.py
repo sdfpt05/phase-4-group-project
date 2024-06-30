@@ -6,15 +6,15 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 bp = Blueprint('main', __name__)
 
-@bp.errorhandler(404)
-def not_found(e):
-    return render_template("index.html")
+# @bp.errorhandler(404)
+# def not_found(e):
+#     return render_template("index.html")
 
-@bp.route('/')
-def index():
-    return render_template('index.html')
+# @bp.route('/api/')
+# def index():
+#     return render_template('index.html')
 
-@bp.route('/signup', methods=['POST'])
+@bp.route('/api/signup', methods=['POST'])
 def signup():
     data = request.get_json() or {}
     form = SignupForm(data=data)
@@ -29,7 +29,7 @@ def signup():
         return jsonify({"message": "User registered successfully"}), 201
     return jsonify({"errors": form.errors}), 400
 
-@bp.route('/login', methods=['POST'])
+@bp.route('/api/login', methods=['POST'])
 def login():
     data = request.get_json() or {}
     email = data.get('email')
@@ -41,7 +41,7 @@ def login():
 
     return jsonify({"message": "Login successful", "user": user.username}), 200
 
-@bp.route('/books', methods=['GET'])
+@bp.route('/api/books', methods=['GET'])
 def get_books():
     books = Book.query.all()
     return jsonify([{
@@ -52,7 +52,7 @@ def get_books():
         'image_url': book.image_url
     } for book in books]), 200
 
-@bp.route('/addbook', methods=['POST'])
+@bp.route('/api/addbook', methods=['POST'])
 def add_book():
     data = request.get_json() or {}
     form = BookForm(data=data)
@@ -68,7 +68,7 @@ def add_book():
         return jsonify({"message": "Book added successfully"}), 201
     return jsonify({"errors": form.errors}), 400
 
-@bp.route('/book/<int:id>', methods=['GET', 'PUT', 'DELETE'])
+@bp.route('/api/book/<int:id>', methods=['GET', 'PUT', 'DELETE'])
 def book_detail(id):
     book = Book.query.get_or_404(id)
     
@@ -98,7 +98,7 @@ def book_detail(id):
         db.session.commit()
         return jsonify({"message": "Book deleted successfully"}), 200
 
-@bp.route('/addclient', methods=['POST'])
+@bp.route('/api/addclient', methods=['POST'])
 def add_client():
     data = request.get_json() or {}
     form = ClientForm(data=data)

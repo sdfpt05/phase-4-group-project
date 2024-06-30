@@ -12,7 +12,7 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchDashboardData = async () => {
             try {
-                const serverURL = '/api/dashboard'; // Replace with server URL to fetch dashboard data
+                const serverURL = `https://phase-4-group-project.onrender.com/api/dashboard`; 
                 const res = await fetch(serverURL, {
                     method: 'GET',
                     headers: { 'Content-Type': 'application/json' }
