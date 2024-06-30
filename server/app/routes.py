@@ -1,10 +1,15 @@
-from flask import Blueprint, request, jsonify, abort
+from flask import Blueprint, request, jsonify, render_template
 from . import db
 from .models import User, Book, Client
 from .forms import SignupForm, BookForm, ClientForm
 from werkzeug.security import generate_password_hash, check_password_hash
 
 bp = Blueprint('main', __name__)
+
+
+@bp.errorhandler(404)
+def not_found(e):
+    return render_template("index.html")
 
 @bp.route('/signup', methods=['POST'])
 def signup():
