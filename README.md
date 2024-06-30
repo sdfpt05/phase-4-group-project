@@ -67,10 +67,10 @@ src/
 |   |-- Home.js
 |   |-- Login.js
 |   |-- Navbar.js
-|   |-- Signup.js
+|   |-- Signup.js    
 |-- css/
 |   |-- AddBook.css
-|   |-- AddClient.css
+|   |-- AddClient.css      
 |   |-- Book.css
 |   |-- Dashboard.css
 |   |-- Home.css
