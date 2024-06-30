@@ -1,17 +1,24 @@
 import { useFormik } from "formik";
 import * as Yup from 'yup';
 import './css/Signup.css';
-import { serverURL } from "../utils";
+// import { serverURL } from "../utils";
+import { useAuth } from "../authcontext";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const { signup } = useAuth()
+  const navigate = useNavigate
 
 async function onSubmit (values) {
-  const res = await fetch(serverURL, {
-    method: "POST",
-    body: JSON.stringify(values),
-    headers: {"Content-Type": "application/json"}
-  }) 
-  const data = await res.json()
+  console.log(values)
+  signup()
+  navigate('/login')
+  // const res = await fetch(serverURL, {
+  //   method: "POST",
+  //   body: JSON.stringify(values),
+  //   headers: {"Content-Type": "application/json"}
+  // }) 
+  // const data = await res.json()
 }
 
     const formik = useFormik({
@@ -137,7 +144,7 @@ async function onSubmit (values) {
         <button
           type="submit"
           style={{
-            backgroundColor: '#007bff',
+            backgroundColor: '#301934',
             color: 'white',
             padding: '0.5rem 1rem',
             fontSize: '1rem',

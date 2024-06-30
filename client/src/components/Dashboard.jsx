@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './css/Dashboard.css';
+import { useBooks } from '../use-books';
+
 
 const Dashboard = () => {
     const [clients, setClients] = useState(0);
     const [admin, setAdmin] = useState(0);
-    const [books, setBooks] = useState(0);
+    // const [books, setBooks] = useState(0);
+    const { books } = useBooks()
 
     useEffect(() => {
         const fetchDashboardData = async () => {
@@ -34,7 +37,7 @@ const Dashboard = () => {
         <div className="dashboard">
             <div className="dashboard-box">
                 <h2>Total Books</h2> <br />
-                <h2>{books}</h2>
+                <h2>{books.length}</h2>
             </div>
             <div className="dashboard-box">
                 <h2>Total Clients</h2> <br />

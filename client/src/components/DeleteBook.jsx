@@ -1,51 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import EditBook from './EditBook';
+import { useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { serverURL } from '../utils';
 
 const DeleteBook = () => {
   const { id } = useParams();
-
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchBook = async () => {
+    const deleteBook = async () => {
       try {
-        const serverURL = `/book/${id}`; // Replace with server URL to fetch book details
-        const res = await fetch(serverURL);
+        const serverURL = "https://phase-4-group-project.onrender.com${id}"; // Replace with server URL to delete book
+        const res = await fetch(serverURL, {
+          method: 'DELETE',
+        });
         if (!res.ok) {
-          throw new Error('Failed to fetch book');
+          throw new Error('Failed to delete book');
         }
-        const data = await res.json();
-        setTitle(data.title);
-        setAuthor(data.author);
-        setImageUrl(data.image);
+        console.log('Book deleted successfully');
+        navigate('/books'); // Redirect to books list page after deletion
       } catch (error) {
-        console.error('Error fetching book:', error);
+        console.error('Error deleting book:', error);
       }
     };
 
-    fetchBook();
-  }, [id]);
+    deleteBook();
+  }, [id, navigate]); // Execute deletion when `id` or `history` changes
 
-  const handleDelete = async () => {
-    try {
-      const serverURL = `/book/${id}`; // Replace with server URL to delete book
-      const res = await fetch(serverURL, {
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' }
-      });
-      if (!res.ok) {
-        throw new Error('Failed to delete book');
-      }
-      console.log('Book deleted successfully');
-      // Redirect to a different page after deletion
-      history.push('/books'); // Replace '/books' with any redirect path
-    } catch (error) {
-      console.error('Error deleting book:', error);
-    }
-  };
+  return (
+    <div className='delete-book-container'>
+      <h2>Deleting Book...</h2>
+      {/* You can add a spinner or loading message here */}
+    </div>
+  );
 };
 
 export default DeleteBook;

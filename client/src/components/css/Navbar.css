@@ -41,3 +41,9 @@
 .navbar-link:hover {
     text-decoration: underline;
 }
+
+.navbar-button {
+    padding: 20px;
+    background-color: white;
+    color: #301934;
+}

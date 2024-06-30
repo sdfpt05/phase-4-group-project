@@ -6,6 +6,7 @@
     color: #ffc107;
     height: 100vh;
     padding-inline: 30px;
+    padding-top: 50px;
 }
 
 .hero-content {
@@ -32,6 +33,6 @@
 .hero-image {
     flex: 1;
     background: url('Images/home.png') center;
-    background-size: 90%;
+    background-size: 60%;
     background-repeat: no-repeat;
 }
