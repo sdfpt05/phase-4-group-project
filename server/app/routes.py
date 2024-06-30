@@ -6,8 +6,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 bp = Blueprint('main', __name__)
 
-
-
 @bp.errorhandler(404)
 def not_found(e):
     return render_template("index.html")
@@ -116,7 +114,7 @@ def add_client():
         return jsonify({"message": "Client added successfully"}), 201
     return jsonify({"errors": form.errors}), 400
 
-@bp.route('/dashboard', methods=['GET'])
+@bp.route('/api/dashboard', methods=['GET'])
 def dashboard():
     books_count = Book.query.count()
     users_count = User.query.count()

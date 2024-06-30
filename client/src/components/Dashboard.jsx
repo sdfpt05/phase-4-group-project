@@ -12,7 +12,7 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchDashboardData = async () => {
             try {
-                const serverURL = '/dashboard'; // Replace with server URL to fetch dashboard data
+                const serverURL = '/api/dashboard'; // Replace with server URL to fetch dashboard data
                 const res = await fetch(serverURL, {
                     method: 'GET',
                     headers: { 'Content-Type': 'application/json' }
