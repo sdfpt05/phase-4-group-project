@@ -12,7 +12,7 @@ const EditBook = () => {
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const res = await fetch(serverURL + '/book/' +id);
+        const res = await fetch(`${serverURL}/api/${id}`);
         if (!res.ok) {
           throw new Error('Failed to fetch book');
         }
@@ -30,7 +30,7 @@ const EditBook = () => {
 
   async function onSubmit(values) {
     try {
-      const url = `${serverURL}/book/${id}`; // Replace with server URL to update book
+      const url = `${serverURL}/api/${id}`; // Replace with server URL to update book
       const res = await fetch(url, {
         method: 'PUT',
         body: JSON.stringify(values),

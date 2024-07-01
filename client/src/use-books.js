@@ -6,7 +6,7 @@ export function useBooks() {
     useEffect(() => {
         const fetchBooks = async () => {
           try {
-            const serverURL = 'https://phase-4-group-project.onrender.com/books'
+            const serverURL = 'https://phase-4-group-project.onrender.com/api/books'
             const res = await fetch(serverURL);
             if (!res.ok) {
               throw new Error('Failed to fetch data');

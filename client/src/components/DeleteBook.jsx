@@ -9,7 +9,7 @@ const DeleteBook = () => {
   useEffect(() => {
     const deleteBook = async () => {
       try {
-        const serverURL = "`${serverURL}/api/${id}`"; // Replace with server URL to delete book
+        const serverURL = `${serverURL}/api/${id}`; 
         const res = await fetch(serverURL, {
           method: 'DELETE',
         });
